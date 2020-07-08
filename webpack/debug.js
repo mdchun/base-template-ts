@@ -4,7 +4,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const config = {
   mode: 'development',
 
-  entry: path.resolve(__dirname, '../src/index.js'),
+  entry: path.resolve(__dirname, '../src/index.ts'),
   output: {
     library: 'Test',
     libraryTarget: 'umd',
@@ -13,10 +13,21 @@ const config = {
     umdNamedDefine: true
   },
 
+  resolve: {
+    // 后缀列表
+    extensions: [ '.tsx', '.ts', '.js' ],
+  },
+
   devtool: 'inline-source-map',
 
   module: {
     rules: [
+      {
+        test: /\.tsx?$/,
+        use: [
+          "ts-loader"
+        ]
+      },
       {
         test: /\.js$/,
         use: [

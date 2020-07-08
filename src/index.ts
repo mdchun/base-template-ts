@@ -1,6 +1,6 @@
 import Test from './test'
 
-function dec(target, prop, descriptor){
+function dec(target:any, prop:any, descriptor:any){
   console.log(target)
   console.log(prop)
   console.log(descriptor)
@@ -13,24 +13,25 @@ function dec(target, prop, descriptor){
  * 
  */
 class Foo{
-  name = 'Foo...'
-  static name = 'foo'
-  
+  names = 'Foo..'
+  static names:string = 'foo'
+
   static get() {
-    return this.name
+    return this.names
   }
   
   @dec
   go (){
+    console.log(Test)
     new Test()
-    console.log(this.name)
+    console.log(11111111111111,this.names)
   }
   /**
    * 设置名字
-   * @param  {string} name
+   * @param  {string} newName
    */
-  set (name){
-    this.name = name
+  set (newName:string){
+    this.names = newName
   }
   /**
    * 测试用的
@@ -38,7 +39,7 @@ class Foo{
    * @param  {string} name 姓名
    * @returns {string} 返回一个字符串
    */
-  test(age, name){
+  test(age:number, name:string):string{
     return `${age}:${name}`
   }
 }

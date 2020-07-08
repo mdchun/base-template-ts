@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "commonjs",
+    "declaration":true,
+    // 
+    "outDir": "lib",
+    "importHelpers":true,
+    "strict":true,
+    "allowSyntheticDefaultImports":true,
+    "sourceMap": true,
+    // "inlineSourceMap":true,
+    "removeComments": true,
+    "experimentalDecorators":true
+  },
+  "include": [
+    "src/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.ts"
+  ]
+}

@@ -4,7 +4,7 @@
  * @example
  * A('12321')
  */
-function A(str){
+function A(str:string):string{
   return str.substring(1)
 }
 

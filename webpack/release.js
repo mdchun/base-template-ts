@@ -5,13 +5,18 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 const config = {
   mode: 'production',
 
-  entry: path.resolve(__dirname, '../src/index.js'),
+  entry: path.resolve(__dirname, '../src/index.ts'),
   output: {
     library: 'Test',
     libraryTarget: 'umd',
     path: path.resolve(__dirname, '../.package'),
     filename: 'bundle.min.js',
     umdNamedDefine: true
+  },
+
+  resolve: {
+    // 后缀列表
+    extensions: [ '.tsx', '.ts', '.js' ],
   },
 
   devtool: 'source-map',
@@ -22,6 +27,12 @@ const config = {
         test: /\.js/,
         use: ['babel-loader'],
         exclude: /node_modules/
+      },
+      {
+        test: /\.tsx?$/,
+        use: [
+          "ts-loader"
+        ]
       }
     ]
   },
